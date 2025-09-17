@@ -1,0 +1,11 @@
+@import "tailwindcss";
+@media (max-width: 1346px) {
+    .nav-gap-responsive-1346 {
+    gap: 45px; /* или что тебе нужно */
+  }
+}
+@media (max-width: 1200px) {
+    .nav-gap-responsive-1176 {
+    gap: 25px; /* или что тебе нужно */
+  }
+}

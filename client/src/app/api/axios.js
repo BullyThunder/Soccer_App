@@ -1,0 +1,10 @@
+import axios from "axios";
+const api = axios.create({
+  baseURL: process.env.REACT_APP_API_URL || "/", // базовый URL
+  withCredentials: true, // чтобы куки шли автоматически
+  headers: {
+    "Content-Type": "application/json",
+  },
+});
+
+export default api;

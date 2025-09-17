@@ -1,0 +1,7 @@
+POST http://localhost:3001/teams
+Content-Type: application/json
+
+{
+    "nameTeam": "Real Sosiedad",
+    "inmages": "3:1"
+}

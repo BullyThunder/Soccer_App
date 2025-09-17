@@ -1,0 +1,89 @@
+@import "tailwindcss";
+@import './media.css';
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+@layer components {
+  .container-custom {
+     @apply mx-auto w-[97%] px-[10px];
+    max-width: 1640px;
+  }
+}
+.bg-main {
+  background-image: url('/img/bg_header.png');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+.input-custom-size {
+  max-width: 172px;
+  height: 41px;
+  border-radius: 7.4px;
+  backdrop-filter: blur(100px);
+  background: rgba(0, 0, 0, 0.1);
+}
+.input-placeholder::placeholder {
+  font-size: 13.61px;
+  font-weight: 200;
+}
+.shadow-custom {
+  box-shadow: 11px 5px 4px 0 rgba(2, 64, 180, 0.64);
+}
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+ @theme {
+  --container-8xl: 96rem;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+}
+
+/* ------------------ Fonts ------------------ */
+
+@font-face {
+  font-family: "TT Runs Trial";
+  src: url("/TT Runs Trial ExtraBold.ttf") format("truetype"); /* format('ttf') → неверно */
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Runs Trial";
+  src: url("/TT Runs Trial ExtraLight.ttf") format("truetype");
+  font-weight: 200;
+  font-style: normal;
+  font-display: swap;
+}
+
+@layer components {
+  .font-ttRuns {
+    font-family: "TT Runs Trial", sans-serif;
+    font-weight: 600;
+  }
+  .font-ttRuns-200 {
+    font-family: "TT Runs Trial", sans-serif;
+    font-weight: 200;
+  }
+}
+.btn-gradient {
+  border-radius: 8.21px;
+  background: linear-gradient(66.25deg, rgba(2, 30, 75, 0.86) 0.829%, rgba(42, 110, 221, 0.86) 99.171%);
+  color: white;
+  padding: 0.75rem 1.5rem; /* px-6 py-3 */
+  font-size: 52.24px;
+  font-weight: 200;
+
+}

@@ -1,0 +1,23 @@
+const express = require('express')
+const connectDB = require('./mongo')
+const matchesRouter = require('./src/routes/matches')
+const teamsRouter = require('./src/routes/teams')
+const usersRouter = require('./src/routes/users')
+const signUpRouter = require('./src/routes/signup')
+const loginRouter = require('./src/routes/login')
+const homeRouter = require('./src/routes/home')
+
+const app = express()
+app.use(express.json())
+
+connectDB()
+// Все запросы к /matches будут обрабатываться в matchesRouter
+app.use('/matches', matchesRouter)
+app.use('/teams', teamsRouter)
+app.use('/users', usersRouter)
+app.use('/signUp', signUpRouter)
+app.use('/login', loginRouter)
+app.use('/home', homeRouter)
+
+const PORT = process.env.PORT || 3000
+app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
