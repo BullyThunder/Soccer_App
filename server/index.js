@@ -10,6 +10,10 @@ const homeRouter = require('./src/routes/home')
 const app = express()
 app.use(express.json())
 
+app.get('/', (req, res) => {
+  res.send('Server is running!');
+});
+
 connectDB()
 // Все запросы к /matches будут обрабатываться в matchesRouter
 app.use('/matches', matchesRouter)
