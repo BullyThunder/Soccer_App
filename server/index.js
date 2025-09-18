@@ -1,5 +1,6 @@
 const express = require('express')
 const connectDB = require('./mongo')
+const cookieParser = require('cookie-parser')
 const matchesRouter = require('./src/routes/matches')
 const teamsRouter = require('./src/routes/teams')
 const usersRouter = require('./src/routes/users')
@@ -9,6 +10,7 @@ const homeRouter = require('./src/routes/home')
 
 const app = express()
 app.use(express.json())
+app.use(cookieParser())
 
 app.get('/', (req, res) => {
   res.send('Server is running!');

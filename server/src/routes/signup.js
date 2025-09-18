@@ -11,6 +11,10 @@ signupRouter.post('/',async(req,res,next)=>{
     if(!email || !username || !password){
         return res.status(400).json({ error: 'All fields are required' })
     }
+     const existingEmail = await User.findOne({email});
+    if(existingEmail){
+         return res.status(400).json({ error: 'Email already taken' })
+    }
     const existingName = await User.findOne({username});
     if(existingName){
          return res.status(400).json({ error: 'Username already taken' })
@@ -22,18 +26,24 @@ signupRouter.post('/',async(req,res,next)=>{
         passwordHash,
         name
     })
-    await newUser.save();
+      try {
+    await newUser.save()
+    } catch(err) {
+    return res.status(500).json({ error: 'Failed to create user' })
+    }
 
-    const userForToken = ({
-        username: newUser.username,
-        id: newUser._id
-    })
+    const userForToken = { id: newUser._id, email: newUser.email }
     const token = jwt.sign(userForToken,process.env.SECRET,
         { expiresIn: '1h' }
     )
+      res.cookie('token', token, {
+    httpOnly: true,    
+    secure: true,      
+    sameSite: 'strict',
+    maxAge: 1000 * 60 * 60, 
+    })
     const responseData = ({
         message: 'User created successfully',
-        token,
         username: newUser.username,
         name: newUser.name
     })

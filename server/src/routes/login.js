@@ -10,9 +10,10 @@ loginRouter.post('/',async(req,res,next)=>{
     if(!user){
         return res.status(401).json({ error: 'invalid password or email' });
     }
-    const passwordCorrerct = user === null
-    ? false
-    : await bcrypt.compare(password, user.passwordHash)
+    const isPasswordCorrect = await bcrypt.compare(password, user.passwordHash)
+  if (!isPasswordCorrect) {
+    return res.status(401).json({ error: 'invalid email or password' })
+  }
     
     const userToken = ({
         email: user.email,
@@ -23,8 +24,14 @@ loginRouter.post('/',async(req,res,next)=>{
             expiresIn: '1h'
         }
     )
+     res.cookie('token', token, {
+    httpOnly: true,    
+    secure: true,      
+    sameSite: 'strict',
+    maxAge: 1000 * 60 * 60, 
+    })
+
     const responseData = ({
-        token,
         email: user.email,
         name: user.name,
     })
