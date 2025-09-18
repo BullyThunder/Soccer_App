@@ -1,5 +1,6 @@
 const express = require('express')
 const connectDB = require('./mongo')
+const cors = require('cors');
 const cookieParser = require('cookie-parser')
 const matchesRouter = require('./src/routes/matches')
 const teamsRouter = require('./src/routes/teams')
@@ -9,6 +10,10 @@ const loginRouter = require('./src/routes/login')
 const homeRouter = require('./src/routes/home')
 
 const app = express()
+app.use(cors({
+  origin: 'http://localhost:3001', // адрес твоего локального фронта
+  credentials: true                // важно для httpOnly cookie
+}));
 app.use(express.json())
 app.use(cookieParser())
 
