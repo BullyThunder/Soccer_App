@@ -1,4 +1,5 @@
 // components/Header.js
+"use client";
 import React from 'react';
 import Image from 'next/image';
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
@@ -8,18 +9,7 @@ export default function Header() {
 
     <header className="container-custom rounded-[20px] backdrop-blur-sm  font-ttRuns bg-[#D9D9D9]/30 ">
       <div className="container-custom font-ttRuns min-h-screen flex flex-col justify-center max-w-[1640px] mx-auto px-4">
-
-  {/* Обертка текста с max-width и фоном */}
-  <div className="inline-block max-w-[600px] px-4 py-2 rounded-[7.4px] bg-[#D9D9D9]/20">
-    <h1 className="text-[93.94px] font-ttRuns leading-[127px] text-white">ФУТБОЛ</h1>
-    <h2 className="text-[63.64px] font-ttRuns-200 leading-[86px] text-white">больше, чем игра</h2>
-  </div>
-
-  <button className="font-ttRuns-200 btn-gradient mt-[179px]  self-start px-6 py-3 rounded bg-blue-600 text-white font-semibold cursor-pointer">
-    Узнать больше
-  </button>
-  </div>
-      <div className="container-custom flex items-center justify-between ">
+ <div className="container-custom flex items-center justify-between ">
         {/* Логотип */}
         <div className="flex flex-row items-center justify-center gap-x-[11px]">
         <img src="/img/header_logo.svg" alt="logo" width={100} height={40} />
@@ -107,6 +97,16 @@ export default function Header() {
     </div>
 
       </div>
+  {/* Обертка текста с max-width и фоном */}
+  <div className="inline-block max-w-[600px] px-4 py-2 rounded-[7.4px] bg-[#D9D9D9]/20">
+    <h1 className="text-[93.94px] font-ttRuns leading-[127px] text-white">ФУТБОЛ</h1>
+    <h2 className="text-[63.64px] font-ttRuns-200 leading-[86px] text-white">больше, чем игра</h2>
+  </div>
+
+  <button className="font-ttRuns-200 btn-gradient mt-[179px]  self-start px-6 py-3 rounded bg-blue-600 text-white font-semibold cursor-pointer">
+    Узнать больше
+  </button>
+  </div>
     </header>
   );
 }
