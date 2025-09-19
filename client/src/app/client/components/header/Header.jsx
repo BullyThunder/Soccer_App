@@ -2,15 +2,17 @@
 "use client";
 import React from 'react';
 import Image from 'next/image';
+
 import { MagnifyingGlassIcon } from '@heroicons/react/24/outline';
 
 export default function Header() {
   return (
 
-    <header className="container-custom rounded-[20px] backdrop-blur-sm  font-ttRuns bg-[#D9D9D9]/30 ">
-      <div className="container-custom font-ttRuns min-h-screen flex flex-col justify-center max-w-[1640px] mx-auto px-4">
- <div className="container-custom flex items-center justify-between ">
+    <header className="container-custom rounded-[20px] font-ttRuns  ">
+      <div className="pt-[74px] ">
+      <div className="container-custom rounded-[15px] bg-[#D9D9D9]/30 flex items-center justify-between ">
         {/* Логотип */}
+
         <div className="flex flex-row items-center justify-center gap-x-[11px]">
         <img src="/img/header_logo.svg" alt="logo" width={100} height={40} />
         <div className="flex flex-col text-white text-[19.31px] leading-[26px] tracking-[-1px]">
@@ -82,8 +84,6 @@ export default function Header() {
   </a>
 </nav>
 
-
-
         {/* Поиск */}
       <div className="relative w-full max-w-sm input-custom-size ">
       <span className="absolute inset-y-0 left-2 flex items-center cursor-pointer">
@@ -95,10 +95,12 @@ export default function Header() {
         className="input-placeholder bg-transparent w-full h-full pl-9 pr-3 rounded-md text-sm placeholder-white text-white focus:outline-none focus:ring-2 focus:ring-black text-center"
       />
     </div>
-
+    </div>
       </div>
+      <div className="font-ttRuns min-h-screen flex flex-col justify-center  max-w-[1640px] mx-auto px-4">
+    
   {/* Обертка текста с max-width и фоном */}
-  <div className="inline-block max-w-[600px] px-4 py-2 rounded-[7.4px] bg-[#D9D9D9]/20">
+  <div className="inline-block  max-w-[600px] px-4 py-2 rounded-[7.4px] bg-[#D9D9D9]/20">
     <h1 className="text-[93.94px] font-ttRuns leading-[127px] text-white">ФУТБОЛ</h1>
     <h2 className="text-[63.64px] font-ttRuns-200 leading-[86px] text-white">больше, чем игра</h2>
   </div>

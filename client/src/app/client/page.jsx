@@ -1,8 +1,9 @@
 import Header from "./components/header/Header";
+import "../globals.css";
 export default function ClientPage() {
   return (
     <>
-      <main className="p-4">
+      <main className="bg-main">
          <Header />
       </main>
     </>

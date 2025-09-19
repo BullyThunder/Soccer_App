@@ -5,7 +5,6 @@ export default function RootLayout({ children }) {
       <body>
         <div className="bg-main min-h-screen">
           <div className="h-[74px]"></div> 
-          <Header />
           {children}
         </div>
       </body>

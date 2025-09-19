@@ -12,9 +12,6 @@
 }
 .bg-main {
   background-image: url('/img/bg_header.png');
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
 }
 .input-custom-size {
   max-width: 172px;
