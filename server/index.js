@@ -5,7 +5,7 @@ const cookieParser = require('cookie-parser')
 const matchesRouter = require('./src/routes/matches')
 const teamsRouter = require('./src/routes/teams')
 const usersRouter = require('./src/routes/users')
-const signUpRouter = require('./src/routes/signup')
+const signUpRouter = require('./src/routes/signUp')
 const loginRouter = require('./src/routes/login')
 const homeRouter = require('./src/routes/home')
 
