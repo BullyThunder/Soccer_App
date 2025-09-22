@@ -10,7 +10,8 @@ const userShema = new mongoose.Schema({
     match: [/^\S+@\S+\.\S+$/, 'Email format is invalid'] 
   }, 
   passwordHash: { type: String, required: true },
-  role: { type: String, enum: ['user', 'admin'], default: 'user' }
+  role: { type: String, enum: ['user', 'admin'], default: 'user' },
+   name: { type: String, required: true }
 })
 
 mongoose.plugin(toJSON)
