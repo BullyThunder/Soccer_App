@@ -5,13 +5,13 @@ const cookieParser = require('cookie-parser')
 const matchesRouter = require('./src/routes/matches')
 const teamsRouter = require('./src/routes/teams')
 const usersRouter = require('./src/routes/users')
-const signUpRouter = require('./src/routes/signUp')
+const signUpRouter = require('./src/routes/signup')
 const loginRouter = require('./src/routes/login')
 const homeRouter = require('./src/routes/home')
 
 const app = express()
 app.use(cors({
-  origin: 'http://localhost:3003', // адрес твоего локального фронта
+  origin: 'http://localhost:3002', // адрес твоего локального фронта
   credentials: true                // важно для httpOnly cookie
 }));
 app.use(express.json())
@@ -26,7 +26,7 @@ connectDB()
 app.use('/matches', matchesRouter)
 app.use('/teams', teamsRouter)
 app.use('/users', usersRouter)
-app.use('/signUp', signUpRouter)
+app.use('/signup', signUpRouter)
 app.use('/login', loginRouter)
 app.use('/home', homeRouter)
 
