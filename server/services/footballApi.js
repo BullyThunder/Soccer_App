@@ -7,7 +7,7 @@ const fetchBarcelonaMatches = async() =>{
         {headers:{"X-Auth-Token": API_KEY}}
     )
     const all_Matches = res.data.matches;
-    const finishedMatches = all_Matches.filter(m=>m.status === FINISHED);
+    const finishedMatches = all_Matches.filter(m=>m.status === "FINISHED");
     const last_5_Matches = finishedMatches.slice(-5).reverse();
     return last_5_Matches
 }

@@ -3,26 +3,27 @@ const toJSON = require('../../utils/toJSON')
 
 
 const matchSchema = new mongoose.Schema({
-  homeTeam:{
-     type: String,
-    minlength: 2,
+  utcDate:{
+    type: Date,
     required: true
+  },
+  homeTeam:{
+     shortName: String,
+     crest: String
   },
   awayTeam:{
-    type: String,
-    minlength: 2,
-    required: true
+     shortName: String,
+     crest: String
   },
   score: {
-  type: String,
-  required: true,
-  validate: {
-    validator: function(v) {
-      return /^\d+:\d+$/.test(v)  // одна или более цифр, двоеточие, одна или более цифр
-    },
-    message: props => `${props.value} is not a valid score format!`
-  }
+  type: {
+    fullTime: {
+      home: Number,
+      away: Number
     }
+  },
+  required: true
+  }
   })
 
 mongoose.plugin(toJSON)
