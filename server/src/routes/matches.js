@@ -1,11 +1,20 @@
 const express = require('express');
 const router = express.Router()
 const Matches = require('../models/matches')
+const fetchBarcelonaMatches = require('../../services/footballApi')
+const errorHandler = require('../../middleware/errorHandler')
 
-router.get('/',(req,res)=>{
-    res.send('All_Matches')
+router.get('/',async(req,res,next)=>{
+    try{
+        const last5 = await fetchBarcelonaMatches();
+        res.json(last5)
+    }
+    catch(error){
+        next(error)
+    }
 });
-
+module.exports = router
+/*
 router.post('/',(req,res,next)=>{
     const body = req.body;
      if (!body.homeTeam || !body.awayTeam || !body.score) {
@@ -24,5 +33,5 @@ router.post('/',(req,res,next)=>{
     .catch(error => next(error))
 
 })
+*/
 
-module.exports = router
