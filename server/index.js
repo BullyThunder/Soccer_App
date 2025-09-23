@@ -11,7 +11,7 @@ const homeRouter = require('./src/routes/home')
 
 const app = express()
 app.use(cors({
-   origin: "http://localhost:3002", // адрес твоего локального фронта
+   origin: "http://localhost:3000", // адрес твоего локального фронта
   credentials: true                // важно для httpOnly cookie
 }));
 app.use(express.json())
