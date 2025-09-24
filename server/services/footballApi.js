@@ -4,6 +4,15 @@ const API_KEY = process.env.FOOTBALL_DATA_KEY;
 const fetchBarcelonaMatches = async() =>{
     const res = await axios.get(
         `https://api.football-data.org/v4/teams/81/matches`,
+        {headers:{"X-Auth-Token": API_KEY}})
+    const all_Matches = res.data.matches;
+    const finished_Matches = all_Matches.filter(i => i.status === "FINISHED");
+    return finished_Matches;
+}
+
+const fetchBarcelonaMatches_last5 = async() =>{
+    const res = await axios.get(
+        `https://api.football-data.org/v4/teams/81/matches`,
         {headers:{"X-Auth-Token": API_KEY}}
     )
     const all_Matches = res.data.matches;
@@ -12,5 +21,9 @@ const fetchBarcelonaMatches = async() =>{
     return last_5_Matches
 }
 
-module.exports = fetchBarcelonaMatches;
+module.exports = 
+    {   
+        fetchBarcelonaMatches,
+        fetchBarcelonaMatches_last5
+    }
 

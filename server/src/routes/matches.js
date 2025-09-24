@@ -1,8 +1,7 @@
 const express = require('express');
 const router = express.Router()
 const Matches = require('../models/matches')
-const fetchBarcelonaMatches = require('../../services/footballApi');
-const fetchBarcelonaMatches_last5 = require('../../services/footballApi')
+const { fetchBarcelonaMatches, fetchBarcelonaMatches_last5 } = require('../../services/footballApi');
 const errorHandler = require('../../middleware/errorHandler')
 
 router.get('/',async(req,res,next)=>{
