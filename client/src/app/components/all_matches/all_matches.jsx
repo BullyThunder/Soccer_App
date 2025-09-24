@@ -1,12 +1,12 @@
 "use client";
 import { useState,useEffect } from "react";
 import dayjs from 'dayjs';
-import api from "../../../api/axios.js";
-const Matches = () =>{
+import api from "../../api/axios.js";
+const all_Matches = () =>{
     const [matches,setMatches] = useState([]);
     useEffect(()=>{
         const fetchData = async() =>{
-        const res = await api.get('/matches',{withCredentials: true});
+        const res = await api.get('/matches/all_matches',{withCredentials: true});
         setMatches(res.data);
     };
         fetchData()
@@ -104,4 +104,4 @@ return (
   );
 };
 
-export default Matches;
+export default all_Matches;
