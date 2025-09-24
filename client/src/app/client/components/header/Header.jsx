@@ -10,7 +10,7 @@ export default function Header() {
 
     <header className="container-custom rounded-[20px] font-ttRuns  ">
       <div className="pt-[74px] ">
-      <div className="container-custom rounded-[15px] bg-[#D9D9D9]/30 flex items-center justify-between ">
+      <div className="container-custom h-[83px]  rounded-[15px] bg-[#D9D9D9]/30 flex items-center justify-between ">
         {/* Логотип */}
 
         <div className="flex flex-row items-center justify-center gap-x-[11px]">
@@ -21,7 +21,7 @@ export default function Header() {
         </div>
         </div>
         {/* Навигация */}
-       <nav className="text-white text-[20px] 2xl:text-[26px] gap-x-[85px] hidden md:flex nav-gap-responsive-1346 nav-gap-responsive-1176">
+       <nav className="text-white text-[20px] 2xl:text-[24px] gap-x-[77px] hidden md:flex nav-gap-responsive-1346 nav-gap-responsive-1176">
   <a
     href="#"
     className="

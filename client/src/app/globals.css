@@ -7,7 +7,7 @@
 @layer components {
   .container-custom {
      @apply mx-auto w-[97%] px-[10px];
-    max-width: 1640px;
+    max-width: 1758.09px;
   }
 }
 .bg-main {
@@ -52,18 +52,33 @@ body {
 
 @font-face {
   font-family: "TT Runs Trial";
-  src: url("/TT Runs Trial ExtraBold.ttf") format("truetype"); /* format('ttf') → неверно */
+  src: url("/fonts/TT Runs Trial DemiBold.ttf") format("truetype"); /* format('ttf') → неверно */
   font-weight: 600;
   font-style: normal;
   font-display: swap;
 }
 @font-face {
   font-family: "TT Runs Trial";
-  src: url("/TT Runs Trial ExtraLight.ttf") format("truetype");
+  src: url("/fonts/TT Runs Trial ExtraLight.ttf") format("truetype");
   font-weight: 200;
   font-style: normal;
   font-display: swap;
 }
+@font-face {
+  font-family: "TT Runs Trial";
+  src: url("/fonts/TT Runs Trial ExtraBold.ttf") format("truetype");
+  font-weight: 800;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "TT Runs Trial";
+  src: url("/fonts/TT Runs Trial Regular.ttf") format("truetype");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
 
 @layer components {
   .font-ttRuns {
@@ -74,7 +89,51 @@ body {
     font-family: "TT Runs Trial", sans-serif;
     font-weight: 200;
   }
+  .font-ttRuns-800{
+    font-family: "TT Runs Trial", sans-serif;
+    font-weight: 800;
+  }
+  .font-ttRuns-400{
+    font-family: "TT Runs Trial", sans-serif;
+    font-weight: 400;
+  }
+  .h1-link {
+    @apply relative inline-block text-black cursor-pointer 
+           transition-colors duration-300
+           hover:text-blue-500;
+  }
+  .h1-link::after {
+    content: '';
+    display: block;
+    width: 75%;
+    border-bottom: 2px solid #8C2241;
+    margin-left: auto;
+    margin-right: auto;
+    transition: border-color 0.3s ease 0.15s;
+  }
+
+  .h1-link:hover::after {
+    border-color: #3B82F6; /* Tailwind blue-500 */
+  }
+  .h2-link {
+    @apply relative inline-block text-[#8C2241]  cursor-pointer 
+           transition-colors duration-300
+           hover:text-blue-500;
+  }
+.h2-link::after {
+     content: '';
+    display: block;
+    width: 75%;
+    border-bottom: 2px solid #00234B;
+    margin-left: auto;
+    margin-right: auto;
+    transition: border-color 0.3s ease 0.15s;
+  }
+  .h2-link:hover::after {
+    border-color: #3B82F6; /* Tailwind blue-500 */
+  }
 }
+
 .btn-gradient {
   border-radius: 8.21px;
   background: linear-gradient(66.25deg, rgba(2, 30, 75, 0.86) 0.829%, rgba(42, 110, 221, 0.86) 99.171%);
@@ -82,5 +141,4 @@ body {
   padding: 0.75rem 1.5rem; /* px-6 py-3 */
   font-size: 52.24px;
   font-weight: 200;
-
 }
