@@ -44,7 +44,7 @@ export default function Header() {
       hover:after:bg-blue-400 hover:after:content-['']
     "
   >
-    PLAYERS
+    MATCHES
   </a>
   <a
     href="#"
@@ -56,7 +56,7 @@ export default function Header() {
       hover:after:bg-blue-400 hover:after:content-['']
     "
   >
-    MATCHES
+    PLAYERS
   </a>
   <a
     href="#"

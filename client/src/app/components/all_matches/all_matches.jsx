@@ -2,7 +2,8 @@
 import { useState,useEffect } from "react";
 import dayjs from 'dayjs';
 import api from "../../api/axios.js";
-const all_Matches = () =>{
+import Link from 'next/link';
+const all_matches = () =>{
     const [matches,setMatches] = useState([]);
     useEffect(()=>{
         const fetchData = async() =>{
@@ -97,11 +98,13 @@ return (
   </ul>
 </div>
       </div>
-      <div className="flex justify-start">
-  <h2 className="font-ttRuns-400 text-[40px]  h2-link">Watch All</h2>
-</div>
+      <div className="pb-[40px]">
+      <Link href="/client">
+       <button className="font-ttRuns-400 text-[40px]  h2-link">Return to Main</button>
+       </Link>
+      </div>
     </div>
   );
 };
 
-export default all_Matches;
+export default all_matches;
