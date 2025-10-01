@@ -1,7 +1,6 @@
 const express = require('express');
 const auth = require('../../../middleware/auth');
-const bcrypt = require('bcrypt')
-const jwt = require('jsonwebtoken')
+const Match = require('../../models/matches');
 const checkRole = require('../../../middleware/checkRole');
 
 const router = express.Router();
@@ -34,3 +33,5 @@ router.post('/',async(req,res,next)=>{
     }
 })
 
+
+module.exports = router;

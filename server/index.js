@@ -8,6 +8,7 @@ const usersRouter = require('./src/routes/users')
 const signUpRouter = require('./src/routes/signup')
 const loginRouter = require('./src/routes/login')
 const homeRouter = require('./src/routes/home')
+const adminMatches = require('./src/routes/admin/matches')
 
 const app = express()
 app.use(cors({
@@ -29,6 +30,7 @@ app.use('/users', usersRouter)
 app.use('/signup', signUpRouter)
 app.use('/login', loginRouter)
 app.use('/home', homeRouter)
+app.use('/admin/matches',adminMatches)
 
 const PORT = process.env.PORT || 3000
 app.listen(PORT, () => console.log(`Server running on port ${PORT}`))
