@@ -1,11 +1,9 @@
-const express = require('express');
-const checkRole = (res,res,next) =>{
-    return (res,res,next) =>{
-        if(req.user.role != role){
-            return res.status(403).json({ message: "Нет доступа" })
-        }
-    }
-}
+const checkRole = (role) => {
+    return (req, res, next) => {
+        if (!req.user) return res.status(401).json({ message: "Не авторизован" });
+        if (req.user.role !== role) return res.status(403).json({ message: "Нет доступа" });
+        next();
+    };
+};
 
-module.exports = isAdmin;
-
+module.exports = checkRole;
