@@ -2,10 +2,11 @@
 const express = require('express');
 const bcrypt = require('bcrypt')
 const User =  require('../models/user');
-const checkRole = require('../../middleware/checkRole');
+
+const auth = require('../../middleware/auth')
 
 const usersRouter = express.Router();
-usersRouter.use(checkRole('admin'))
+
 
 usersRouter.get('/', async(req,res)=>{
     const users = await User.find({});
