@@ -2,9 +2,10 @@ const express = require('express')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
 const User = require('../models/user') // твоя модель User
-
+const auth = require('../../middleware/auth')
 
 const signupRouter = express.Router()
+signupRouter.use(auth);
 
 signupRouter.post('/',async(req,res,next)=>{
     const{email,username,password,name,role} = req.body;
