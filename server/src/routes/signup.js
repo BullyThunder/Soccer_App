@@ -7,7 +7,7 @@ const User = require('../models/user') // твоя модель User
 const signupRouter = express.Router()
 
 signupRouter.post('/',async(req,res,next)=>{
-    const{email,username,password,name} = req.body;
+    const{email,username,password,name,role} = req.body;
     if(!email || !username || !password){
         return res.status(400).json({ error: 'All fields are required' })
     }
@@ -20,11 +20,12 @@ signupRouter.post('/',async(req,res,next)=>{
          return res.status(400).json({ error: 'Username already taken' })
     }
     const passwordHash = await bcrypt.hash(password,10);
-    const newUser = new User({
+    const newUser = await new User({
         email,
         username,
         passwordHash,
-        name
+        name,
+        role: userRole
     })
       try {
     await newUser.save()
