@@ -16,13 +16,23 @@ const matchSchema = new mongoose.Schema({
      crest: String
   },
   score: {
-  type: {
+    type: {
     fullTime: {
-      home: Number,
-      away: Number
-    }
+      home: { type: Number, default:0},
+      away: { type: Number, default:0 }
+    },
+    },
+     required: true
   },
-  required: true
+  source:{
+     type: String,
+    enum: ['api','custom'],   // чтобы явно указывать источник
+    default: 'custom'
+  },
+  createdBy: {
+    type: mongoose.Schema.Types.ObjectId,
+    ref: 'User',
+    required: false
   }
   })
 
