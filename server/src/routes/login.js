@@ -5,7 +5,7 @@ const loginRouter = express.Router();
 const User =  require('../models/user');
 
 loginRouter.post('/',async(req,res,next)=>{
-    const {email,password} = req.body;
+    const {email,password,role} = req.body;
     const user = await User.findOne({email});
     if(!user){
         return res.status(401).json({ error: 'invalid password or email' });
@@ -34,6 +34,7 @@ loginRouter.post('/',async(req,res,next)=>{
     const responseData = ({
         email: user.email,
         name: user.name,
+        role: user.role
     })
 
     res
