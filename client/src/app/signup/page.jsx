@@ -1,7 +1,7 @@
 "use client"
 import '../globals.css';
 import { useState } from "react";
-import { signUp } from '../api/signUp';
+import { signUp } from '../user/api/signUp';
 import { useRouter } from "next/navigation";
 
 const SignUpPage = () =>{

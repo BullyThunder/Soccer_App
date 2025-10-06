@@ -1,10 +1,13 @@
-"use client";
+'use client';
 import { useState,useEffect } from "react";
 import dayjs from 'dayjs';
 import Link from 'next/link';
-import api from "../../api/axios.js";
+import { useRouter,usePathname } from "next/navigation";
+import api from "../../api/axios";
 const Matches = () =>{
     const [matches,setMatches] = useState([]);
+     const router = useRouter();
+     const pathName = usePathname();
     useEffect(()=>{
         const fetchData = async() =>{
         const res = await api.get('/matches',{withCredentials: true});
@@ -12,6 +15,12 @@ const Matches = () =>{
     };
         fetchData()
 },[])
+  useEffect(()=>{
+    if(pathName.includes("#")){
+      const id = pathName.split('#')[1];
+      const el = document.getElementById(id);
+      if (el) el.scrollIntoView({ behavior: "smooth" });
+    }},[router.asPath])
 
 return (
   <div className="container-custom">

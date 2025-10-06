@@ -1,7 +1,7 @@
 "use client";
 import { useState,useEffect } from "react";
 import dayjs from 'dayjs';
-import api from "../../api/axios.js";
+import api from "../../api/axios";
 import Link from 'next/link';
 const all_matches = () =>{
     const [matches,setMatches] = useState([]);
@@ -99,7 +99,7 @@ return (
 </div>
       </div>
       <div className="pb-[40px]">
-      <Link href="/client">
+      <Link href="/user/client">
        <button className="font-ttRuns-400 text-[40px]  h2-link">Return to Main</button>
        </Link>
       </div>

@@ -1,7 +1,7 @@
 "use client";
 import '../globals.css';
 import { useState } from "react";
-import { login } from "../api/login";
+import { login } from "../user/api/login";
 import { useRouter } from "next/navigation";
 
 const Login = () => {
@@ -16,8 +16,13 @@ const Login = () => {
 
     try {
       const user = await login({ email, password });
-      console.log("User logged in:", user);
-      router.push("/client"); // редирект после успешного логина
+      console.log("user from login:", user);
+      if(user.role === 'admin'){
+        router.push("/admin/main");
+      }
+       else if(user.role === 'user'){
+      router.push("/user/client"); // редирект после успешного логина
+      }
     } catch (err) {
       setError(err.response?.data?.error || "Login failed");
     }
@@ -59,7 +64,7 @@ const Login = () => {
           </button>
         </form>
         <p className="text-sm text-gray-500 mt-4 text-center">
-          Don't have an account? <a href="/signup" className="text-blue-600">Sign up</a>
+          Don't have an account? <a href="/user/signup" className="text-blue-600">Sign up</a>
         </p>
       </div>
     </div>
