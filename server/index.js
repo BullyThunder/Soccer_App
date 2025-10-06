@@ -12,7 +12,7 @@ const adminMatches = require('./src/routes/admin/matches')
 
 const app = express()
 app.use(cors({
-   origin: "http://localhost:3003", // адрес твоего локального фронта
+   origin: "http://localhost:3000", // адрес твоего локального фронта
   credentials: true                // важно для httpOnly cookie
 }));
 app.use(express.json())
