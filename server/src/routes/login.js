@@ -25,10 +25,10 @@ loginRouter.post('/',async(req,res,next)=>{
         }
     )
      res.cookie('token', token, {
-   httpOnly: true,
-    secure: process.env.NODE_ENV === 'production',
-    sameSite: 'strict',
-    maxAge: 1000 * 60 * 60,
+      httpOnly: true,
+  secure: false,        // ❌ HTTPS нет на локалке
+  sameSite: 'lax',      // ✅ разрешает куки с localhost → localhost
+  maxAge: 1000 * 60 * 60,
     })
 
     const responseData = ({
