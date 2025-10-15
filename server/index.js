@@ -13,7 +13,9 @@ const adminMatches = require('./src/routes/admin/matches')
 const app = express()
 app.use(cors({
    origin: "http://localhost:3000", // адрес твоего локального фронта
-  credentials: true                // важно для httpOnly cookie
+  credentials: true   ,
+  allowedHeaders: ["Content-Type", "Authorization"],
+    methods: ["GET", "POST", "PUT", "DELETE"],             // важно для httpOnly cookie
 }));
 app.use(express.json())
 app.use(cookieParser())
