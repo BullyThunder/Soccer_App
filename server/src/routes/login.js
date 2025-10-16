@@ -26,7 +26,7 @@ loginRouter.post('/',async(req,res,next)=>{
     )
      res.cookie('token', token, {
       httpOnly: true,
-  secure: false,        // ❌ HTTPS нет на локалке
+  secure: true,        // ❌ HTTPS нет на локалке
   sameSite: 'lax',      // ✅ разрешает куки с localhost → localhost
   maxAge: 1000 * 60 * 60,
     })
