@@ -1,6 +1,6 @@
 "use client";
 import { useState } from 'react';
-import { Axios } from 'axios';
+import { axios } from 'axios';
 import createMatch from '../../user/api/createMatch.js'
 import '../../globals.css';
 
