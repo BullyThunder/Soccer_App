@@ -17,7 +17,8 @@ loginRouter.post('/',async(req,res,next)=>{
     
     const userToken = ({
         email: user.email,
-        id: user._id
+        id: user._id,
+         role: user.role
     })
     const token = jwt.sign(userToken, process.env.SECRET,
         {
@@ -25,10 +26,10 @@ loginRouter.post('/',async(req,res,next)=>{
         }
     )
      res.cookie('token', token, {
-      httpOnly: true,
-  secure: true,        // ❌ HTTPS нет на локалке
- sameSite: "none",     // ✅ разрешает куки с localhost → localhost
-  maxAge: 1000 * 60 * 60,
+    httpOnly: true,
+    secure: process.env.NODE_ENV === "production",       
+    sameSite: "none",     
+    maxAge: 1000 * 60 * 60,
     })
 
     const responseData = ({
