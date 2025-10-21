@@ -102,7 +102,7 @@ const AdminPage = () =>{
     const infoMatch = await createMatch(matchData);
     console.log("Match created:", infoMatch);
     setMatches(prev=>
-      [...prev,infoMatch.match]
+      [...prev,infoMatch.match || infoMatch]
     )
      setFormData({
   homeTeam: { shortName: "", crest: "" },
@@ -200,36 +200,44 @@ const AdminPage = () =>{
 
   {/* Список матчей */}
   <ul className="flex flex-col w-full gap-3">
-    {matches.map((m, i) => (
-  <li key={i} className="flex items-center justify-between bg-white p-4 rounded-lg shadow w-full">
-    <span className="text-gray-600 w-24 text-center">
-      {m.utcDate ? new Date(m.utcDate).toLocaleDateString() : "—"}
-    </span>
+  {matches.length === 0 ? (
+    <li className="text-gray-500 text-center py-4">No matches yet</li>
+  ) : (
+    matches.map((m, i) => (
+      <li key={i} className="flex items-center justify-between bg-white p-4 rounded-lg shadow w-full">
+        <span className="text-gray-600 w-24 text-center">
+          {m?.utcDate ? new Date(m.utcDate).toLocaleDateString() : "—"}
+        </span>
 
-    <div className="flex items-center justify-center gap-3 flex-1">
-      {m.homeTeam && 
-      <img
-      src={m.homeTeam?.crest || ""}
-      alt={m.homeTeam?.shortName || ""}
-      className="w-8 h-8"
-    />
-      }
-      <span className="font-medium">{m.homeTeam?.shortName || "—"}</span>
-      <strong className="text-lg">
-        {m.score?.fullTime?.home ?? 0} - {m.score?.fullTime?.away ?? 0}
-      </strong>
-      <span className="font-medium">{m.awayTeam?.shortName || "—"}</span>
-      {m.awayTeam && 
-      <img
-      src={m.awayTeam?.crest || ""}
-      alt={m.awayTeam?.shortName || ""}
-      className="w-8 h-8"
-    />}
-    </div>
-  </li>
-))}
+        <div className="flex items-center justify-center gap-3 flex-1">
+          {m?.homeTeam?.crest && (
+            <img
+              src={m.homeTeam.crest}
+              alt={m.homeTeam.shortName}
+              className="w-8 h-8"
+            />
+          )}
+          <span className="font-medium">{m?.homeTeam?.shortName || "—"}</span>
 
-  </ul>
+          <strong className="text-lg">
+            {(m?.score?.fullTime?.home ?? 0)} - {(m?.score?.fullTime?.away ?? 0)}
+          </strong>
+
+          <span className="font-medium">{m?.awayTeam?.shortName || "—"}</span>
+
+          {m?.awayTeam?.crest && (
+            <img
+              src={m.awayTeam.crest}
+              alt={m.awayTeam.shortName}
+              className="w-8 h-8"
+            />
+          )}
+        </div>
+      </li>
+    ))
+  )}
+</ul>
+
 </div>
 
     </div>
