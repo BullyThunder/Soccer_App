@@ -207,13 +207,24 @@ const AdminPage = () =>{
     </span>
 
     <div className="flex items-center justify-center gap-3 flex-1">
-      {m.homeTeam && <img src={m.homeTeam.crest} alt="" className="w-8 h-8" />}
+      {m.homeTeam && 
+      <img
+      src={m.homeTeam?.crest || ""}
+      alt={m.homeTeam?.shortName || ""}
+      className="w-8 h-8"
+    />
+      }
       <span className="font-medium">{m.homeTeam?.shortName || "—"}</span>
       <strong className="text-lg">
         {m.score?.fullTime?.home ?? 0} - {m.score?.fullTime?.away ?? 0}
       </strong>
       <span className="font-medium">{m.awayTeam?.shortName || "—"}</span>
-      {m.awayTeam && <img src={m.awayTeam.crest} alt="" className="w-8 h-8" />}
+      {m.awayTeam && 
+      <img
+      src={m.awayTeam?.crest || ""}
+      alt={m.awayTeam?.shortName || ""}
+      className="w-8 h-8"
+    />}
     </div>
   </li>
 ))}
