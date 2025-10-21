@@ -1,6 +1,5 @@
 "use client";
 import { useState } from 'react';
-import { axios } from 'axios';
 import createMatch from '../../user/api/createMatch.js'
 import '../../globals.css';
 
@@ -37,7 +36,7 @@ const AdminPage = () =>{
       else if(name === "date"){
         setFormData(prev=>({
           ...prev,
-          utcDate: value
+          utcDate: new Date(value).toISOString()
         }));
       }
     }
@@ -72,7 +71,7 @@ const AdminPage = () =>{
     }
    const sendData = async () => {
   try {
-    const utcDate = new Date(formData.date);
+    const utcDate = formData.utcDate;
 
     const teamMap = {
     "Barcelona": 81,
@@ -83,9 +82,14 @@ const AdminPage = () =>{
     "Paris Saint-Germain": 524,
     "PSG": 524
   };
+    const homeShort = formData.homeTeam.shortName;
+    const awayShort = formData.awayTeam.shortName;
 
-    const homeCrest = `https://crests.football-data.org/${teamMap[formData.homeTeam]}.svg`;
-    const awayCrest = `https://crests.football-data.org/${teamMap[formData.awayTeam]}.svg`;
+    const homeId = teamMap[homeShort] || 0;
+    const awayId = teamMap[awayShort] || 0;
+     const homeCrest = `https://crests.football-data.org/${teamMap[formData.homeTeam.shortName]}.svg`;
+    const awayCrest = `https://crests.football-data.org/${teamMap[formData.awayTeam.shortName]}.svg`;
+
 
     const matchData = {
       utcDate,
@@ -97,9 +101,9 @@ const AdminPage = () =>{
 
     const infoMatch = await createMatch(matchData);
     console.log("Match created:", infoMatch);
-    setMatches(prev=>{
+    setMatches(prev=>
       [...prev,infoMatch]
-    })
+    )
      setFormData({
   homeTeam: { shortName: "", crest: "" },
   awayTeam: { shortName: "", crest: "" },
@@ -151,7 +155,7 @@ const AdminPage = () =>{
           <input
             type="date"
             name="date"
-            value={formData.date}
+            value={formData.utcDate ? formData.utcDate.slice(0, 10) : ""}
             onChange={handleChange}
             className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-64"
           />
