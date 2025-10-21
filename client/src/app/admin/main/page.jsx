@@ -102,7 +102,7 @@ const AdminPage = () =>{
     const infoMatch = await createMatch(matchData);
     console.log("Match created:", infoMatch);
     setMatches(prev=>
-      [...prev,infoMatch]
+      [...prev,infoMatch.match]
     )
      setFormData({
   homeTeam: { shortName: "", crest: "" },
