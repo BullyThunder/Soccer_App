@@ -12,10 +12,11 @@ const adminMatches = require('./src/routes/admin/matches')
 
 const app = express()
 app.use(cors({
-   origin: "https://soccer-app-ten.vercel.app", // адрес твоего локального фронта
+   origin: "https://soccer-hmpytfif9-ruslans-projects-b5bcec14.vercel.app", 
   credentials: true   ,
   allowedHeaders: ["Content-Type", "Authorization"],
-    methods: ["GET", "POST", "PUT", "DELETE"],             // важно для httpOnly cookie
+    methods: ["GET", "POST", "PUT", "DELETE"],  
+    optionsSuccessStatus: 200,           
 }));
 app.use(express.json())
 app.use(cookieParser())
