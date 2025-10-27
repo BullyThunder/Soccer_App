@@ -12,7 +12,7 @@ const adminMatches = require('./src/routes/admin/matches')
 
 const app = express()
 app.use(cors({
-   origin: "https://soccer-hmpytfif9-ruslans-projects-b5bcec14.vercel.app", 
+   origin: "https://soccer-app-ten.vercel.app", 
   credentials: true   ,
   allowedHeaders: ["Content-Type", "Authorization"],
     methods: ["GET", "POST", "PUT", "DELETE"],  
