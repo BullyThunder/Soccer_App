@@ -35,11 +35,14 @@ const AdminPage = () =>{
             }))
       }
       else if(name === "date"){
+        setFormData(prev=>({
+          ...prev, inputDate: value
+        }))
       let cleaned = value.trim();
        cleaned = cleaned.replace(/\//g, '.');
         const [day,month,year] = cleaned.split('.');
         if (day && month && year){
-          const utcDate = new Date(Date.UTC(year,month,day)).toISOString();
+          const utcDate = new Date(Date.UTC(year,(month-1),day)).toISOString();
         
         setFormData(prev=>({
           ...prev,
@@ -164,12 +167,14 @@ const AdminPage = () =>{
         <div className="flex flex-col">
           <label className="text-sm text-gray-600 mb-1">Date</label>
           <input
-            type="date"
+            type="text"
             name="date"
-            value={formData.utcDate ? formData.utcDate.slice(0, 10) : ""}
+            placeholder="дд.мм.гггг"
+            value={formData.inputDate || ""}
             onChange={handleChange}
             className="border border-gray-300 rounded-lg px-3 py-2 focus:outline-none focus:ring-2 focus:ring-blue-400 w-64"
           />
+
         </div>
         </div>
       <div className='flex mt-2 gap-x-4'>
