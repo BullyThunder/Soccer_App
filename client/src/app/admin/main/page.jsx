@@ -2,6 +2,7 @@
 import { useState } from 'react';
 import createMatch from '../../user/api/createMatch.js'
 import '../../globals.css';
+import { replace } from 'react-router-dom';
 
 const AdminPage = () =>{
     const [formData, setFormData] = useState({
@@ -34,10 +35,20 @@ const AdminPage = () =>{
             }))
       }
       else if(name === "date"){
+      let cleaned = value.trim();
+       cleaned = cleaned.replace(/\//g, '.');
+        const [day,month,year] = cleaned.split('.');
+        if (day && month && year){
+          const utcDate = new Date(Date.UTC(year,(month-1),day)).toISOString();
+        
         setFormData(prev=>({
           ...prev,
-          utcDate: new Date(value).toISOString()
+          utcDate
         }));
+      }
+      else{
+         console.warn("Неверный формат даты:", value);
+      }
       }
     }
     const handleHomeScoreChange = (e) =>{
