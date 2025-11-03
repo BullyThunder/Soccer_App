@@ -39,7 +39,7 @@ const AdminPage = () =>{
        cleaned = cleaned.replace(/\//g, '.');
         const [day,month,year] = cleaned.split('.');
         if (day && month && year){
-          const utcDate = new Date(Date.UTC(year,(month-1),day)).toISOString();
+          const utcDate = new Date(Date.UTC(year,month,day)).toISOString();
         
         setFormData(prev=>({
           ...prev,
