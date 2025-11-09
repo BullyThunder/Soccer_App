@@ -9,10 +9,15 @@ router.use(auth);
 router.use(checkRole('admin'));
 
 router.get('/',async(req,res,next)=>{
+    try{
     const matches = await Match.find({
         createdBy: req.user.id
     });
     res.json(matches)
+    }
+    catch(error){
+        next(error)
+    }
 
 })
 router.post('/',async(req,res,next)=>{
