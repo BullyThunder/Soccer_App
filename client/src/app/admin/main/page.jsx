@@ -3,6 +3,7 @@ import { useState } from 'react';
 import createMatch from '../../user/api/createMatch.js'
 import '../../globals.css';
 import { replace } from 'react-router-dom';
+import savedMatch from '@/app/user/api/saveMatch.js';
 
 const AdminPage = () =>{
     const [formData, setFormData] = useState({
@@ -114,6 +115,7 @@ const AdminPage = () =>{
     };
 
     const infoMatch = await createMatch(matchData);
+    const savedMatch = await savedMatch(matchData);
     console.log("Match created:", infoMatch);
     setMatches(prev=>
       [...prev,infoMatch.match || infoMatch]
