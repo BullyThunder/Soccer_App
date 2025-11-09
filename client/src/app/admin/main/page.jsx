@@ -1,9 +1,9 @@
 "use client";
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import createMatch from '../../user/api/createMatch.js'
 import '../../globals.css';
 import { replace } from 'react-router-dom';
-import savedMatch from '@/app/user/api/saveMatch.js';
+import getMatches from '@/app/user/api/saveMatch.js';
 
 const AdminPage = () =>{
     const [formData, setFormData] = useState({
@@ -24,6 +24,18 @@ const AdminPage = () =>{
         },
     })
     const [matches, setMatches] = useState([]);
+    useEffect(()=>{
+      const fetchMatches = async()=>{
+        try{
+        const savedMatch = await getMatches();
+        setMatches(savedMatch)
+        }
+        catch(error){
+          console.error("Error fetching matches:", error);
+        }
+      }
+      fetchMatches();
+    })
     const handleChange = (e) =>{
       const {name,value} = e.target
       if(name === "homeTeam" || name === "awayTeam"){
@@ -115,7 +127,7 @@ const AdminPage = () =>{
     };
 
     const infoMatch = await createMatch(matchData);
-    const savedMatch = await savedMatch(matchData);
+    const saved = await getMatches(matchData);
     console.log("Match created:", infoMatch);
     setMatches(prev=>
       [...prev,infoMatch.match || infoMatch]
