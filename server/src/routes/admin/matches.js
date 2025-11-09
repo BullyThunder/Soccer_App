@@ -8,6 +8,13 @@ const router = express.Router();
 router.use(auth);
 router.use(checkRole('admin'));
 
+router.get('/',async(req,res,next)=>{
+    const matches = await Match.find({
+        createdBy: req.user.id
+    });
+    res.json(matches)
+
+})
 router.post('/',async(req,res,next)=>{
     try{
     const {utcDate,homeTeam,awayTeam,score} = req.body;
