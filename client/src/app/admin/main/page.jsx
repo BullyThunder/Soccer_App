@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import createMatch from '../../user/api/createMatch.js'
 import '../../globals.css';
 import { replace } from 'react-router-dom';
-import getMatches from '../../user/api/saveMatch.js';
+import savedMatch from '../../user/api/saveMatch.js';
 
 const AdminPage = () =>{
     const [formData, setFormData] = useState({
@@ -28,14 +28,14 @@ const AdminPage = () =>{
       const fetchMatches = async()=>{
         try{
         const savedMatch = await getMatches();
-        setMatches(savedMatch)
+        setMatches(Array.isArray(savedMatch) ? savedMatch : [savedMatch])
         }
         catch(error){
           console.error("Error fetching matches:", error);
         }
       }
       fetchMatches();
-    })
+    },[])
     const handleChange = (e) =>{
       const {name,value} = e.target
       if(name === "homeTeam" || name === "awayTeam"){
@@ -127,7 +127,7 @@ const AdminPage = () =>{
     };
 
     const infoMatch = await createMatch(matchData);
-    const saved = await getMatches(matchData);
+    const saved = await savedMatch();
     console.log("Match created:", infoMatch);
     setMatches(prev=>
       [...prev,infoMatch.match || infoMatch]

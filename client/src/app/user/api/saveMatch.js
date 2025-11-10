@@ -1,7 +1,7 @@
 import api from "./axios";
 
-const savedMatch = async(dataMatches)=>{
+const savedMatch = async()=>{
     const res = await api.get("/admin/matches", {withCredentials: true})
-    return res;
+    return res.data;
 }
 export default savedMatch
