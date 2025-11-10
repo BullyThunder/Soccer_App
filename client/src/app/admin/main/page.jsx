@@ -27,7 +27,7 @@ const AdminPage = () =>{
     useEffect(()=>{
       const fetchMatches = async()=>{
         try{
-        const savedMatch = await savedMatch();
+        const matchesFromServer = await savedMatch();
         setMatches(Array.isArray(savedMatch) ? savedMatch : [savedMatch])
         }
         catch(error){
