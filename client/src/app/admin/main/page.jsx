@@ -28,7 +28,7 @@ const AdminPage = () =>{
       const fetchMatches = async()=>{
         try{
         const matchesFromServer = await savedMatch();
-        setMatches(Array.isArray(savedMatch) ? savedMatch : [savedMatch])
+        setMatches(Array.isArray(matchesFromServer) ? matchesFromServer : [matchesFromServer])
         }
         catch(error){
           console.error("Error fetching matches:", error);
