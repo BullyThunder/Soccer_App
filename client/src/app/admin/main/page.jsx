@@ -3,7 +3,7 @@ import { useEffect, useState } from 'react';
 import createMatch from '../../user/api/createMatch.js'
 import '../../globals.css';
 import { replace } from 'react-router-dom';
-import getMatches from '@/app/user/api/saveMatch.js';
+import getMatches from '../../user/api/saveMatch.js';
 
 const AdminPage = () =>{
     const [formData, setFormData] = useState({
