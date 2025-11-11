@@ -1,7 +1,7 @@
 const express = require('express');
-const auth = require('../../../middleware/auth');
-const Match = require('../../models/matches');
-const checkRole = require('../../../middleware/checkRole');
+const auth = require('../../../middleware/auth.js');
+const Match = require('../../models/matches.js');
+const checkRole = require('../../../middleware/checkRole.js');
 
 const router = express.Router();
 
