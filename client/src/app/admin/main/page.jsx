@@ -4,7 +4,7 @@ import createMatch from '../../user/api/createMatch.js'
 import '../../globals.css';
 import { replace } from 'react-router-dom';
 import savedMatch from '../../user/api/saveMatch.js';
-
+import deleteMatch from '../../user/api/deleteMatch.js'
 const AdminPage = () =>{
     const [formData, setFormData] = useState({
         homeTeam: {
@@ -143,7 +143,22 @@ const AdminPage = () =>{
     console.log(error);
   }
 };
-    
+    const remove_Match = async(matches_Id) =>{
+      try{
+      const deleted = await deleteMatch(matches_Id);
+      if(deleted.message === "Match deleted"){
+      const filter_del = matches.filter(item => item._id != matches_Id);
+      setMatches(filter_del);
+      }
+      else{
+        console.error("Match don`t loaded")
+      }
+      }
+      catch(error){
+         console.log(error);
+      }
+      
+    }
 
      return (
     <div className="flex flex-col items-center p-6 min-h-screen bg-gray-50">
@@ -262,6 +277,25 @@ const AdminPage = () =>{
               className="w-8 h-8"
             />
           )}
+          <button 
+          onClick={()=> remove_Match(m._id)}
+          className="
+          bg-red-500 
+          hover:bg-red-600 
+          text-white 
+          font-semibold 
+          px-4 
+          py-2 
+          rounded-lg 
+          shadow 
+          transition 
+          duration-200 
+          ease-in-out
+          focus:outline-none 
+          focus:ring-2 
+          focus:ring-red-400
+        "
+          >Delete match</button>
         </div>
       </li>
     ))
