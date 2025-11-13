@@ -278,7 +278,7 @@ const AdminPage = () =>{
             />
           )}
           <button 
-          onClick={()=> remove_Match(m._id)}
+          onClick={()=> remove_Match(m._id || m.id)}
           className="
           bg-red-500 
           hover:bg-red-600 
