@@ -6,7 +6,7 @@ const deleteMatch = (idMatch) =>{
     return response.data;
     }
     catch(error){
-         console.error("Ошибка при удалении матча:", error);
+         console.error("Error deleting match:", error);
          throw error;
     }
 }
