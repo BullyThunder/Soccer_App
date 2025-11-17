@@ -1,13 +1,14 @@
 import api from "./axios";
 
-const deleteMatch = (idMatch) =>{
+const deleteMatch = async(idMatch) =>{
     try{
-    const response = api.delete(`/admin/matches/${idMatch}`, {withCredentials: true});
-    return response.data;
+        const response = await api.delete(`/admin/matches/${idMatch}`, {withCredentials: true});
+        return response.data;
     }
     catch(error){
-         console.error("Error deleting match:", error);
-         throw error;
+        const msg = error.response?.data?.message || 'Server error';
+        console.error("Error deleting match:", msg);
+        throw new Error(msg);
     }
 }
 
