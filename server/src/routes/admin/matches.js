@@ -48,20 +48,20 @@ router.post('/',async(req,res,next)=>{
 router.delete('/:id',async(req,res,next)=>{
     try{
     const {id} = req.params;
-    console.log("🟡 ID получен с фронта:", id);
+    console.log("🟡 ID received by front:", id);
         if (!mongoose.Types.ObjectId.isValid(id)) {
             return res.status(400).json({ message: "Invalid match id" });
         }
    const deletedMatches = await Match.findByIdAndDelete(id)
     if(!deletedMatches){
-        res
+       return res
         .status(404)
         .json({ message: "Match not found" })
     }
-    return res
-    .status(200)
-    .json({message: "Match deleted"})
-    }
+        return res
+            .status(200)
+            .json({message: "Match deleted"})
+    }      
     catch(error){
         next(error)
     }
