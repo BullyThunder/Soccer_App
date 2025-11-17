@@ -63,6 +63,7 @@ router.delete('/:id',async(req,res,next)=>{
             .json({message: "Match deleted"})
     }      
     catch(error){
+        console.error("❌ DELETE error:", error);
         next(error)
     }
 })
