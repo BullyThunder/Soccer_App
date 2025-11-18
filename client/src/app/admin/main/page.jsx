@@ -146,7 +146,7 @@ const AdminPage = () =>{
     const remove_Match = async(matches_Id) =>{
       try{
       const deleted = await deleteMatch(matches_Id);
-      if(deleted.message === "Match deleted"){
+      if(!deleted?.error){
       setMatches(prev=> prev.filter(item => item._id !== matches_Id))
       }
       else{
