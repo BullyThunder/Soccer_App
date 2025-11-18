@@ -147,8 +147,7 @@ const AdminPage = () =>{
       try{
       const deleted = await deleteMatch(matches_Id);
       if(deleted.message === "Match deleted"){
-      const filter_del = matches.filter(item => item._id != matches_Id);
-      setMatches(filter_del);
+      setMatches(prev=> prev.filter(item => item._id !== matches_Id))
       }
       else{
         console.error("Match don`t loaded")
