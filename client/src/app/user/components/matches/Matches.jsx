@@ -30,12 +30,14 @@ return (
         Last Matches</h1>
       </div>
       <div className="
+      mx-[20px]
     mb-[64.61px]
     box-border 
     border-[0.95px] border-[rgba(10,47,105,1)] 
     rounded-[19.09px] 
     shadow-[0_3.8177871704101562px_10.498915672302246px_0_rgba(19,63,136,1)]
     w-full
+    pl
 ">
   <ul className="
     font-ttRuns-400
@@ -49,7 +51,7 @@ return (
         key={m.id} 
         className="
           grid 
-          grid-cols-[150px_330px_1fr_140px_1fr_300px] 
+          grid-cols-[minmax(80px,1fr)_minmax(100px,2fr)_1fr_minmax(60px,1fr)_1fr_minmax(80px,1fr)]
           gap-4
           items-center 
           h-[143px] 
