@@ -12,10 +12,7 @@ const adminMatches = require('./src/routes/admin/matches')
 
 const app = express()
 app.use(cors({
-  origin: [
-    "https://soccer-app-ten.vercel.app",
-  "http://localhost:3002",   // ← твой фронт в процессе разработки
-  "http://192.168.1.42:3002"], 
+  origin: "http://localhost:3002",   // ← твой фронт в процессе разработки
   credentials: true   ,
   allowedHeaders: ["Content-Type", "Authorization"],
     methods: ["GET", "POST", "PUT", "DELETE"],  
