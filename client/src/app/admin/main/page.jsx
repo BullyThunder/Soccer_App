@@ -147,6 +147,7 @@ const AdminPage = () =>{
       try{
       const deleted = await deleteMatch(matches_Id);
       if(!deleted?.error){
+      console.log("Deleting match with id:", matches_Id, "Server response:", deleted);
       setMatches(prev=> prev.filter(item => item._id !== matches_Id))
       }
       else{
