@@ -51,7 +51,7 @@ return (
         key={m.id} 
         className="
           grid 
-          grid-cols-[minmax(80px,1fr)_minmax(100px,2fr)_1fr_minmax(60px,1fr)_1fr_minmax(80px,1fr)]
+          grid-cols-[minmax(80px,1fr)_minmax(60px,1fr)_1fr_minmax(80px,1fr)_1fr_minmax(80px,1fr)]
           gap-4
           items-center 
           h-[143px] 
@@ -67,7 +67,7 @@ return (
         </span>
         
         {/* Логотип домашней команды */}
-        <div className="flex justify-center">
+        <div className="flex justify-center max-[1245px]:justify-end">
           <img
             src={m.homeTeam.crest}
             alt={m.homeTeam.name}
@@ -95,7 +95,7 @@ return (
         </span>
         
         {/* Логотип гостевой команды */}
-        <div className="flex justify-center">
+        <div className="flex justify-center max-[1245px]:justify-start">
           <img
             src={m.awayTeam.crest}
             alt={m.awayTeam.name}
