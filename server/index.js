@@ -12,7 +12,7 @@ const adminMatches = require('./src/routes/admin/matches')
 
 const app = express()
 app.use(cors({
-  origin: "http://localhost:3000",   // ← твой фронт в процессе разработки
+  origin: "http://localhost:3001",   // ← твой фронт в процессе разработки
   credentials: true   ,
   allowedHeaders: ["Content-Type", "Authorization"],
     methods: ["GET", "POST", "PUT", "DELETE"],  
