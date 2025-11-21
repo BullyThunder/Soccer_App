@@ -2,8 +2,10 @@
 import { useState,useEffect } from "react";
 import dayjs from 'dayjs';
 import api from "../../api/axios";
+import { useRouter } from "next/navigation";
 import Link from 'next/link';
 const all_matches = () =>{
+  const router = useRouter()
     const [matches,setMatches] = useState([]);
     useEffect(()=>{
         const fetchData = async() =>{
@@ -131,9 +133,10 @@ return (
   </div>
         </div>
         <div className="flex justify-start">
-          <Link href="client/all_matches">
-    <button className="font-ttRuns-400 text-[40px]  h2-link">Watch All</button>
-    </Link>
+          
+    <button
+    onClick={() => router.back()}
+     className="font-ttRuns-400 text-[40px]  h2-link">Return to Main Page</button>
   </div>
       </div>
   );
