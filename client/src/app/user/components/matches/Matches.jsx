@@ -92,7 +92,8 @@ return (
             className="w-[80px] h-[80px] object-contain 
             transition-all duration-200 max-[970px]:w-[50px] 
             max-[970px]:h-[50px] max-[700px]:w-[35px] 
-            max-[700px]:h-[35px] max-[600px]:w-[50px] max-[600px]:h-[50px]"
+            max-[700px]:h-[35px] max-[600px]:w-[50px] max-[600px]:h-[50px]
+            "
           />
         </div>
         

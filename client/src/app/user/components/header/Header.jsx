@@ -9,19 +9,26 @@ export default function Header() {
   return (
 
     <header className="container-custom rounded-[20px] font-ttRuns  ">
-      <div className="pt-[74px] ">
-      <div className="container-custom h-[83px]  rounded-[15px] bg-[#D9D9D9]/30 flex items-center justify-between ">
+      <div className="pt-[74px] 
+      max-[846px]:pt-[40px]
+
+      ">
+      <div className="container-custom h-[83px] 
+       rounded-[15px] bg-[#D9D9D9]/30 flex items-center justify-around 
+       max-[500px]:gap-x-[15px]">
         {/* Логотип */}
 
         <div className="flex flex-row items-center justify-center gap-x-[11px]">
-        <img src="/img/header_logo.svg" alt="logo" width={100} height={40} />
-        <div className="flex flex-col text-white text-[19.31px] leading-[26px] tracking-[-1px]">
-        <span>FOOTBALL</span>
-        <span>CLUB</span>
-        </div>
+        <img src="/img/fc-barcelona-logo.svg" alt="logo" 
+        className='
+    w-[90px] h-[90px] max-[500px]:w-[80px] max-[500px]:h-[70px] 
+    '
+        />
         </div>
         {/* Навигация */}
-       <nav className="text-white text-[20px] 2xl:text-[24px] gap-x-[77px] hidden md:flex nav-gap-responsive-1346 nav-gap-responsive-1176">
+       <nav className="text-white text-[20px] 2xl:text-[24px] gap-x-[77px]  md:flex nav-gap-responsive-1346 nav-gap-responsive-1176
+       max-[768px]:flex max-[768px]:gap-x-[5px]
+       ">
   <a
     href="#"
     className="
@@ -30,6 +37,7 @@ export default function Header() {
       hover:after:absolute hover:after:left-0 hover:after:right-0 
       hover:after:bottom-0 hover:after:h-[2px] 
       hover:after:bg-blue-400 hover:after:content-['']
+      max-[845px]:text-base
     "
   >
     HOME
@@ -42,6 +50,7 @@ export default function Header() {
       hover:after:absolute hover:after:left-0 hover:after:right-0 
       hover:after:bottom-0 hover:after:h-[2px] 
       hover:after:bg-blue-400 hover:after:content-['']
+      max-[845px]:text-base
     "
   >
     MATCHES
@@ -54,38 +63,18 @@ export default function Header() {
       hover:after:absolute hover:after:left-0 hover:after:right-0 
       hover:after:bottom-0 hover:after:h-[2px] 
       hover:after:bg-blue-400 hover:after:content-['']
+      max-[845px]:text-base
     "
   >
     PLAYERS
   </a>
-  <a
-    href="#"
-    className="
-      relative pb-[7px] 
-      hover:text-blue-400 
-      hover:after:absolute hover:after:left-0 hover:after:right-0 
-      hover:after:bottom-0 hover:after:h-[2px] 
-      hover:after:bg-blue-400 hover:after:content-['']
-    "
-  >
-    HISTORY
-  </a>
-  <a
-    href="#"
-    className="
-      relative pb-[7px] 
-      hover:text-blue-400 
-      hover:after:absolute hover:after:left-0 hover:after:right-0 
-      hover:after:bottom-0 hover:after:h-[2px] 
-      hover:after:bg-blue-400 hover:after:content-['']
-    "
-  >
-    CONTACTS
-  </a>
+
 </nav>
 
         {/* Поиск */}
-      <div className="relative w-full max-w-sm input-custom-size ">
+      <div className="relative w-full max-w-sm input-custom-size
+       max-[768px]:hidden
+      ">
       <span className="absolute inset-y-0 left-2 flex items-center cursor-pointer">
         <MagnifyingGlassIcon className="w-5 h-5 text-white" />
       </span>
@@ -100,14 +89,35 @@ export default function Header() {
       <div className="font-ttRuns min-h-screen flex flex-col justify-center  max-w-[1640px] mx-auto px-4">
     
   {/* Обертка текста с max-width и фоном */}
-  <div className="inline-block  max-w-[600px] px-4 py-2 rounded-[7.4px] bg-[#D9D9D9]/20">
-    <h1 className="text-[93.94px] font-ttRuns leading-[127px] text-white">ФУТБОЛ</h1>
-    <h2 className="text-[63.64px] font-ttRuns-200 leading-[86px] text-white">больше, чем игра</h2>
+  <div className="inline-block  max-w-[600px] px-4 py-2 rounded-[7.4px] bg-[#D9D9D9]/20
+  max-[846px]:flex
+  max-[846px]:flex-col
+  max-[846px]:gap-y-[20px]
+
+  ">
+    <h1 className="text-[93.94px] font-ttRuns leading-[127px] text-white
+    max-[846px]:text-[60px]
+     max-[846px]:leading-[50px]
+     max-[500px]:text-[35px]
+    ">Soccer</h1>
+    <h2 className="text-[63.64px] font-ttRuns-200 leading-[86px] text-white
+    max-[846px]:text-[40px] 
+    max-[846px]:leading-[50px]
+    max-[500px]:text-[25px]
+    max-[500px]:leading-none
+    ">more than a game</h2>
   </div>
 
-  <button className="font-ttRuns-200 btn-gradient mt-[179px]  self-start px-6 py-3 rounded bg-blue-600 text-white font-semibold cursor-pointer">
-    Узнать больше
-  </button>
+ <button className="
+    font-ttRuns-200 
+    btn-gradient mt-[179px] self-start px-6 py-3 rounded 
+    bg-blue-600 text-white font-semibold cursor-pointer max-[846px]:text-[20px] 
+    max-[846px]:leading-none max-[846px]:p-20 max-[500px]:text-[16px] 
+    btn-gradient-media 
+     max-[503px]:mt-[120px]
+">
+    Learn more
+</button>
   </div>
     </header>
   );

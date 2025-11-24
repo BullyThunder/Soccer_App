@@ -12,6 +12,27 @@
 }
 .bg-main {
   background-image: url('/img/bg_header.png');
+  background-repeat: no-repeat;
+  background-size: cover;      /* Добавьте это, чтобы масштабировать изображение */
+  background-position: right; /* Добавьте это, чтобы центрировать изображение */
+}
+.btn-gradient {
+  border-radius: 8.21px;
+  background: linear-gradient(66.25deg, rgba(2, 30, 75, 0.86) 0.829%, rgba(42, 110, 221, 0.86) 99.171%);
+  color: white;
+  padding: 0.75rem 1.5rem; /* px-6 py-3 */
+  font-size: 52.24px;
+  font-weight: 200;
+}
+@media (max-width: 846px) {
+  .btn-gradient-media{
+    font-size: 32px;
+  }
+}
+@media (max-width: 500px) {
+  .btn-gradient-media{
+    font-size: 26px;
+  }
 }
 .input-custom-size {
   max-width: 172px;
@@ -132,13 +153,4 @@ body {
   .h2-link:hover::after {
     border-color: #3B82F6; /* Tailwind blue-500 */
   }
-}
-
-.btn-gradient {
-  border-radius: 8.21px;
-  background: linear-gradient(66.25deg, rgba(2, 30, 75, 0.86) 0.829%, rgba(42, 110, 221, 0.86) 99.171%);
-  color: white;
-  padding: 0.75rem 1.5rem; /* px-6 py-3 */
-  font-size: 52.24px;
-  font-weight: 200;
 }
