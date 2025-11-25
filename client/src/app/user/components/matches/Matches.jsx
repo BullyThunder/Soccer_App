@@ -23,7 +23,9 @@ const Matches = () =>{
     }},[router.asPath])
 
 return (
-  <div className="container-custom">
+  <div className="container-custom"
+  id="matches-anchor"
+  >
     <div className="flex flex-col gap-2 justify-center items-center ">
       <div className="pt-[73.3px] pb-[96.31px]
       max-[970px]:pb-[73.3px]

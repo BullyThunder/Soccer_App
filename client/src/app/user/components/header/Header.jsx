@@ -46,7 +46,7 @@ export default function Header() {
     HOME
   </a>
   <a
-    href="#"
+    href="#matches-anchor"
     className="
       relative pb-[7px] 
       hover:text-blue-400 
