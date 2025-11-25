@@ -10,11 +10,10 @@ if (require.main === module) {
   mongoose.connect(url)
     .then(async () => {
       if (process.argv.length === 2) {
-        // node user.js
-        // вывести всех пользователей
+        
         return User.find({})
       } else if (process.argv.length === 6) {
-        // node user.js <username> <email> <password> <role>
+        
         const username = process.argv[2]
         const email = process.argv[3]
         const password = process.argv[4]

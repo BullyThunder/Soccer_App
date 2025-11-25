@@ -1,6 +1,6 @@
 if (require.main === module) {
   const mongoose = require('mongoose')
-  const Matches = require('./models/matches') // путь к модели Matches
+  const Matches = require('./models/matches') 
   require('dotenv').config()
 
   const url = process.env.MONGODB_URI
@@ -9,11 +9,10 @@ if (require.main === module) {
   mongoose.connect(url)
     .then(() => {
       if (process.argv.length === 2) {
-        // Если запущено просто: node matches.js
-        // — вывести все матчи
+        
         return Matches.find({})
       } else if (process.argv.length === 4) {
-        // Если запущено с двумя аргументами: node matches.js <team1> <team2>
+        
         const team1 = process.argv[2]
         const team2 = process.argv[3]
 

@@ -23,24 +23,5 @@ router.get('/all_matches', async(req,res,next)=>{
     }
 })
 module.exports = router
-/*
-router.post('/',(req,res,next)=>{
-    const body = req.body;
-     if (!body.homeTeam || !body.awayTeam || !body.score) {
-    return res.status(400).json({ error: 'Missing required fields' });
-  }
-    const match =  new Matches({
-        homeTeam: body.homeTeam,
-        awayTeam: body.awayTeam,
-        score: body.score
-    })
-    match
-    .save()
-    .then((savedMatch)=>{
-        res.json(savedMatch)
-    })
-    .catch(error => next(error))
 
-})
-*/
 

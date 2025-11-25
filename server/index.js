@@ -12,7 +12,7 @@ const adminMatches = require('./src/routes/admin/matches')
 
 const app = express()
 app.use(cors({
-  origin: "http://localhost:3000",   // ← твой фронт в процессе разработки
+  origin: "https://soccer-app-ten.vercel.app",  
   credentials: true   ,
   allowedHeaders: ["Content-Type", "Authorization"],
     methods: ["GET", "POST", "PUT", "DELETE"],  
@@ -26,7 +26,7 @@ app.get('/', (req, res) => {
 });
 
 connectDB()
-// Все запросы к /matches будут обрабатываться в matchesRouter
+
 app.use('/matches', matchesRouter)
 app.use('/teams', teamsRouter)
 app.use('/users', usersRouter)

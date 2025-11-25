@@ -1,6 +1,6 @@
 if (require.main === module) {
   const mongoose = require('mongoose')
-  const Team = require('./src/models/teams') // путь к модели Team
+  const Team = require('./src/models/teams') 
   require('dotenv').config()
 
   const url = process.env.MONGODB_URI
@@ -9,10 +9,10 @@ if (require.main === module) {
   mongoose.connect(url)
     .then(() => {
       if (process.argv.length === 2) {
-        // node teams.js → вывести все команды
+        
         return Team.find({})
       } else if (process.argv.length === 4) {
-        // node teams.js <teamName> <imagePath>
+        
         const nameTeam = process.argv[2]
         const image = process.argv[3]
 
