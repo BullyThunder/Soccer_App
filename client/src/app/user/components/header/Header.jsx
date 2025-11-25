@@ -16,16 +16,18 @@ export default function Header() {
       <div className="container-custom h-[83px] 
        rounded-[15px] bg-[#D9D9D9]/30 flex items-center justify-around 
        max-[500px]:gap-x-[15px]">
-        {/* Логотип */}
+        
 
         <div className="flex flex-row items-center justify-center gap-x-[11px]">
         <img src="/img/fc-barcelona-logo.svg" alt="logo" 
         className='
     w-[90px] h-[90px] max-[500px]:w-[80px] max-[500px]:h-[70px] 
+     max-[425px]:w-[60px] max-[425px]:h-[30px] 
+     max-[375px]:hidden
     '
         />
         </div>
-        {/* Навигация */}
+       
        <nav className="text-white text-[20px] 2xl:text-[24px] gap-x-[77px]  md:flex nav-gap-responsive-1346 nav-gap-responsive-1176
        max-[768px]:flex max-[768px]:gap-x-[5px]
        ">
@@ -38,6 +40,7 @@ export default function Header() {
       hover:after:bottom-0 hover:after:h-[2px] 
       hover:after:bg-blue-400 hover:after:content-['']
       max-[845px]:text-base
+      max-[425px]:text-xs
     "
   >
     HOME
@@ -51,6 +54,7 @@ export default function Header() {
       hover:after:bottom-0 hover:after:h-[2px] 
       hover:after:bg-blue-400 hover:after:content-['']
       max-[845px]:text-base
+      max-[425px]:text-xs
     "
   >
     MATCHES
@@ -64,6 +68,7 @@ export default function Header() {
       hover:after:bottom-0 hover:after:h-[2px] 
       hover:after:bg-blue-400 hover:after:content-['']
       max-[845px]:text-base
+      max-[425px]:text-xs
     "
   >
     PLAYERS
@@ -71,7 +76,7 @@ export default function Header() {
 
 </nav>
 
-        {/* Поиск */}
+        
       <div className="relative w-full max-w-sm input-custom-size
        max-[768px]:hidden
       ">
